@@ -9,11 +9,12 @@
 - `cl1000.exe` 为云端 OSS 更新器，内置正式更新源和验签公钥，无需额外 INI。
 - `cl1000CN.exe` 是内容相同的备用入口；台服更新覆盖 `cl1000.exe` 后，运行它可恢复本服主更新器和文件。两份云端更新器一同更新，备用入口也支持自更新。
 - `cl1000TW.exe` 为台服更新器；`CPatch.ini` 保存其台服更新地址和通道。
+- `notice.txt` 为 GBK 在线公告，只显示前两行，单独上传 OSS，不进入客户端更新清单。
 - `ClientIni.ini`、`config/defcfg.ini` 是分发默认模板；个人截图、角色配置、更新状态和缓存不入库。
 
 ## 更新发布
 
-1. 在本仓库替换或新增正式分发文件，核对 `git status` 和具体差异。
+1. 在本仓库替换或新增正式分发文件，核对 `git status` 和具体差异。`Client.exe` 使用相邻 `1000ySource/client/bin/Client.exe` 中验收通过的产物，以独立文件替换，避免原地改写硬链接。
 2. 使用相邻 `1000ySource/py1000y/patch/publish.py` 发布：脚本先在本目录从 `cl1000.exe` 自动同步 `cl1000CN.exe`，再生成新的发布快照、清单及签名。
 3. 核对后先上传资源，再上传签名清单，最后做线上检查；Git 提交不等于 OSS 已同步。
 
@@ -21,6 +22,12 @@
 排除 `.git`、Git 规则、维护文档和玩家运行数据。`CPatch.ini` 保留台服更新参数，
 按普通受管文件纳入云端签名清单，本地修改或缺失时恢复。该文件供台服更新器读取
 连接参数，云端更新器使用自身内置或 `cl1000.ini` 指定的更新源。
+
+公告独立于客户端清单维护。修改 `notice.txt` 后，单独上传到同一 OSS 更新源：
+
+```powershell
+ossutil cp -f notice.txt oss://<bucket>/client/notice.txt --cache-control no-cache
+```
 
 ## APP 素材提取
 
