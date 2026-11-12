@@ -3,6 +3,9 @@
 /config/*
 !/config/defcfg.ini
 
+# Local game executable variants.
+/ClientTW.exe
+
 # Native and OSS updater runtime data.
 /.patch-state/
 /.patch-backup/
@@ -18,6 +21,8 @@
 /cl1000.new
 /cl1000.exe.old
 /cl1000.exe.new
+/cl1000CN.exe.old
+/cl1000CN.exe.new
 *.part
 *.log
 *.dmp
