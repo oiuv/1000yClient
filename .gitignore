@@ -3,9 +3,6 @@
 /config/*
 !/config/defcfg.ini
 
-# Local game executable variants.
-/ClientTW.exe
-
 # Native and OSS updater runtime data.
 /.patch-state/
 /.patch-backup/
