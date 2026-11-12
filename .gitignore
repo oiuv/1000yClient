@@ -1,0 +1,38 @@
+# Player profiles and screenshots; retain the default configuration template.
+/capture/
+/config/*
+!/config/defcfg.ini
+
+# Native and OSS updater runtime data.
+/.patch-state/
+/.patch-backup/
+/.patch-stage/
+/.patch.lock
+/patch.dat
+/sprite/Atz.b
+/cl1000.ini
+/cl1000.log
+/cl1000.old.log
+/cl1000.cache
+/cl1000.old
+/cl1000.new
+/cl1000.exe.old
+/cl1000.exe.new
+*.part
+*.log
+*.dmp
+*.bak
+*.tmp
+Thumbs.db
+desktop.ini
+
+# Generated release metadata, snapshots and private maintenance material.
+/manifest.tsv
+/manifest.sig
+/publish/
+/.private/
+/release.local.psd1
+*.pem
+*.pfx
+*.p12
+__pycache__/

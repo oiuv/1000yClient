@@ -1,0 +1,24 @@
+# Preserve original client bytes, including legacy text encodings and CRLF.
+* -text whitespace=cr-at-eol
+
+# Only the repository's maintenance documents are normalized UTF-8 text.
+/.gitignore text eol=lf
+/.gitattributes text eol=lf
+/AGENTS.md text eol=lf
+/README.md text eol=lf
+
+*.exe binary
+*.dll binary
+*.atz binary
+*.atd binary
+*.atw binary
+*.bmp binary
+*.png binary
+*.ico binary
+*.map binary
+*.til binary
+*.obj binary
+*.hdf binary
+*.eft binary
+*.wav binary
+*.mp3 binary
